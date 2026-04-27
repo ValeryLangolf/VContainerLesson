@@ -1,23 +1,17 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IPlayer
 {
     private IInputReader _inputReader;
 
-    // Надо как-то получить IInputReader
+    public Transform Transform => transform;
 
-    private void OnEnable()
-    {
+    private void OnEnable() =>
         _inputReader.InteractionPressed += OnInteractionPressed;
-    }
 
-    private void OnDisable()
-    {
+    private void OnDisable() =>
         _inputReader.InteractionPressed -= OnInteractionPressed;
-    }
 
-    private void OnInteractionPressed()
-    {
+    private void OnInteractionPressed() =>
         Debug.Log("Нажата кнопка взаимодействия");
-    }
 }

@@ -13,4 +13,32 @@ MonoBehaviour:
   m_Name: Config
   m_EditorClassIdentifier: Assembly-CSharp-Editor-firstpass::FiXiK.HierarchyComponentIconAssigner.Config
   _enabled: 1
-  _componentIconList: []
+  _componentIconList:
+  - _icon: {fileID: 2800000, guid: 0cdd6ca023ed1dd49818d5f3a57f7f09, type: 3}
+    _typeName: UnityEngine.Camera, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - _icon: {fileID: 2800000, guid: e9927a4a2516ce9419a19a1f86eb2f86, type: 3}
+    _typeName: UnityEngine.UI.Button, UnityEngine.UI, Version=1.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - _icon: {fileID: 2800000, guid: 1de6867d0c116114c9bca209ecf83598, type: 3}
+    _typeName: EnemySpawnPoint, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - _icon: {fileID: 2800000, guid: 4dcf4a6ff6aed2a4d8b7b35b66177207, type: 3}
+    _typeName: PlayerSpawnPoint, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - _icon: {fileID: 2800000, guid: 6d894256ae59440478a3531633c33a9c, type: 3}
+    _typeName: UnityEngine.Canvas, UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - _icon: {fileID: 2800000, guid: fae44f81cde713443a86d169a47f1f8d, type: 3}
+    _typeName: TMPro.TMP_Text, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - _icon: {fileID: 2800000, guid: 6643feb28da74464389b69ec35dc7858, type: 3}
+    _typeName: UnityEngine.UI.Text, UnityEngine.UI, Version=1.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - _icon: {fileID: 2800000, guid: 9f20fdbd14804e246bff10e5dcdc8f11, type: 3}
+    _typeName: UnityEngine.Light, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - _icon: {fileID: 2800000, guid: 21e71d8c032f5a743b7d53294c3f6c42, type: 3}
+    _typeName: Enemy, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - _icon: {fileID: 2800000, guid: 6832daa387bf5dc46ab4978eadd36245, type: 3}
+    _typeName: Player, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null

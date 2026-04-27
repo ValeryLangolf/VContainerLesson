@@ -13,13 +13,9 @@ public class JsonSaver : ISaver
         _path = path;
     }
 
-    public void Load()
-    {
+    public void Load() =>
         Debug.Log($"Загружены данные из Json по пути '{_path}'");
-    }
 
-    public void Save()
-    {
+    public void Save() =>
         Debug.Log($"Сохранены данные в Json по пути '{_path}'");
-    }
 }

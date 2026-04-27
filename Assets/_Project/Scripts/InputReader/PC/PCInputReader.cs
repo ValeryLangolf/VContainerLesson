@@ -12,7 +12,6 @@ public partial class PCInputReader : IInputReader
 
     public event Action InteractionPressed;
 
-    // Надо как-то обновлять, если не монобех
     public void Tick()
     {
         if (Input.GetKeyDown(_data.InteractionKey))

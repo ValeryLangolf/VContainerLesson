@@ -6,8 +6,6 @@ public class MenuEntryPoint : MonoBehaviour
 
     private IMusic _music;
 
-    // надо как-то внедрить _music
-
     private void Start()
     {
         //_music.Play(_clip);

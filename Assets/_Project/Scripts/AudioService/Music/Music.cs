@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Music : MonoBehaviour
+public class Music : MonoBehaviour, IMusic
 {
     [SerializeField] private AudioSource _source;
 
