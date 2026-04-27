@@ -1,13 +1,17 @@
 using UnityEngine;
+using VContainer.Unity;
 
-public class MenuEntryPoint : MonoBehaviour
+public class MenuEntryPoint : IStartable
 {
-    [SerializeField] private AudioClip _clip;
+    private readonly AudioClip _clip;
+    private readonly IMusic _music;
 
-    private IMusic _music;
-
-    private void Start()
+    public MenuEntryPoint(AudioClip clip, IMusic music)
     {
-        //_music.Play(_clip);
+        _clip = clip;
+        _music = music;
     }
+
+    public void Start() =>
+        _music.Play(_clip);
 }

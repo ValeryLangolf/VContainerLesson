@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
+using VContainer.Unity;
 
-public partial class PCInputReader : IInputReader
+public partial class PCInputReader : IInputReader, ITickable
 {
     private readonly IPCInputData _data;
 

@@ -1,6 +1,4 @@
-using UnityEngine;
-
-public class Constants : MonoBehaviour
+public static class Constants
 {
     public const string MenuSceneName = "Menu";
     public const string GameSceneName = "Game";
