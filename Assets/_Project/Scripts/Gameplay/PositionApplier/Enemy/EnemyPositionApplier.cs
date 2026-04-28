@@ -1,33 +1,51 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemyPositionApplier : IEnemyPositionApplier
 {
-    private readonly List<EnemySpawnPoint> _spawnPoints;
+    private readonly List<Transform> _spawnPoints;
 
     public EnemyPositionApplier(IReadOnlyList<EnemySpawnPoint> spawnPoints)
     {
         if (spawnPoints == null)
             throw new ArgumentNullException(nameof(spawnPoints));
 
-        _spawnPoints = new(spawnPoints);
+        _spawnPoints = spawnPoints
+            .Where(point => point != null && point.transform != null)
+            .Select(point => point.transform)
+            .ToList();
     }
 
-    public bool HasPosition => _spawnPoints.Count > 0;
+    public int CountAvailable => _spawnPoints.Count;
 
-    public void Apply(IEnemy enemy) 
+    public bool TryApply(IEnemy enemy)
     {
-        Transform target = GetTarget();
-        enemy.Transform.SetPositionAndRotation(target.position, target.rotation);
+        if (enemy == null)
+            throw new ArgumentNullException(nameof(enemy));
+
+        if (TryGetTarget(out Transform target))
+        {
+            enemy.Transform.SetPositionAndRotation(target.position, target.rotation);
+
+            return true;
+        }
+
+        return false;
     }
 
-    private Transform GetTarget()
+    private bool TryGetTarget(out Transform target)
     {
-        int index = UnityEngine.Random.Range(0, _spawnPoints.Count);
-        Transform target = _spawnPoints[index].transform;
+        target = null;
+
+        if (CountAvailable == 0)
+            return false;
+
+        int index = UnityEngine.Random.Range(minInclusive: 0, _spawnPoints.Count);
+        target = _spawnPoints[index];
         _spawnPoints.RemoveAt(index);
 
-        return target;
+        return true;
     }
 }

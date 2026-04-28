@@ -12,25 +12,26 @@ public class EnemyByMarkersSpawner : IEnemySpawner
         _positionApplier = positionApplier ?? throw new ArgumentNullException(nameof(positionApplier));
     }
 
-    public IReadOnlyList<IEnemy> Spawn(int count)
+    public bool TrySpawn(int count, out List<IEnemy> enemies)
     {
-        List<IEnemy> enemies = new();
+        if (count < 0)
+            throw new ArgumentOutOfRangeException(nameof(count), count, "Значение должно быть положительным");
 
-        for(int i = 0; i < count; i++)
-        {
-            if (_positionApplier.HasPosition == false)
-                break;
+        enemies = new();
 
+        if (_positionApplier.CountAvailable < count)
+            return false;
+
+        for (int i = 0; i < count; i++)
             enemies.Add(Spawn());
-        }
 
-        return enemies;
+        return true;
     }
 
     private IEnemy Spawn()
     {
         IEnemy enemy = _pool.Give();
-        _positionApplier.Apply(enemy);
+        _positionApplier.TryApply(enemy);
 
         return enemy;
     }

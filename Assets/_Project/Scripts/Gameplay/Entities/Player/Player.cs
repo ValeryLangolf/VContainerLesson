@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using VContainer;
 
@@ -9,7 +10,7 @@ public class Player : MonoBehaviour, IPlayer
 
     [Inject]
     public void Construct(IInputReader inputReader) =>
-        _inputReader = inputReader;
+        _inputReader = inputReader ?? throw new ArgumentNullException(nameof(inputReader));
 
     private void OnEnable() =>
         _inputReader.InteractionPressed += OnInteractionPressed;

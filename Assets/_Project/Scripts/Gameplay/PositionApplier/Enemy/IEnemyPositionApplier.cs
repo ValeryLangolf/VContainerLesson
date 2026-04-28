@@ -1,6 +1,6 @@
 public interface IEnemyPositionApplier
 {
-    public bool HasPosition { get; }
+    public int CountAvailable { get; }
 
-    public void Apply(IEnemy entity);
+    public bool TryApply(IEnemy entity);
 }
