@@ -1,14 +1,18 @@
 using System;
+using UnityEngine;
+using VContainer;
+using VContainer.Unity;
 
-public class EnemyFactory : IEnemyFactory
+public class EnemyFactory : MonoBehaviour, IEnemyFactory, IInjectable
 {
-    private readonly Enemy _prefab;
+    [SerializeField] private Enemy _prefab;
 
-    public EnemyFactory(Enemy prefab)
-    {
-        _prefab = prefab != null ? prefab : throw new ArgumentNullException(nameof(prefab));
-    }
+    private IObjectResolver _resolver;
+
+    [Inject]
+    public void Construct(IObjectResolver resolver) =>
+        _resolver = resolver ?? throw new ArgumentNullException(nameof(resolver));
 
     public IEnemy Create() =>
-        UnityEngine.Object.Instantiate(_prefab);
+        _resolver.Instantiate(_prefab);
 }

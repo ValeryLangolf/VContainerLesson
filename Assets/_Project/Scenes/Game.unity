@@ -365,10 +365,23 @@ MonoBehaviour:
   autoInjectGameObjects:
   - {fileID: 586926261}
   - {fileID: 1981213019}
+  - {fileID: 966702252}
+  _enemyFactory: {fileID: 966702254}
   _inputConfig: {fileID: 11400000, guid: cc2ee71145afc294ea2b3dbc8beb6a5a, type: 2}
   _playerSpawnPoint: {fileID: 100135551}
   _playerPrefab: {fileID: 168764448893610001, guid: 9cb4c3a80141816458fe6ec206505415, type: 3}
   _gameMucic: {fileID: 8300000, guid: 4062736248961024eb8ce14e633c92b6, type: 3}
+  _spawnPoints:
+  - {fileID: 709798605}
+  - {fileID: 1764844188}
+  - {fileID: 868717127}
+  - {fileID: 935834289}
+  - {fileID: 1198557584}
+  - {fileID: 121352959}
+  - {fileID: 152154786}
+  - {fileID: 1160166445}
+  - {fileID: 873365686}
+  - {fileID: 1560966620}
 --- !u!4 &325262510
 Transform:
   m_ObjectHideFlags: 0
@@ -1030,6 +1043,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a54bc7632f2810e47939af5cca8184fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStartPositionMarker
+--- !u!1 &966702252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 966702253}
+  - component: {fileID: 966702254}
+  m_Layer: 0
+  m_Name: EnemyFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &966702253
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966702252}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &966702254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966702252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab599e7b5e10cc4db8802223d6c09ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyFactory
+  _prefab: {fileID: 1976630563085518049, guid: 1ece5f58ab8954f429ca72bf6311fe27, type: 3}
 --- !u!1 &1064305408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1893,3 +1951,4 @@ SceneRoots:
   - {fileID: 325262510}
   - {fileID: 2042714908}
   - {fileID: 577729831}
+  - {fileID: 966702253}

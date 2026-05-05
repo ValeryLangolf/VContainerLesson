@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -7,6 +8,7 @@ public class GameEntryPoint : IStartable
 {
     private readonly IObjectResolver _objectResolver;
     private readonly IMusic _music;
+    private readonly IEnemySpawner _enemySpawner;
     private readonly Player _player;
     private readonly Transform _playerSpawnPoint;
     private readonly AudioClip _clip;
@@ -16,12 +18,14 @@ public class GameEntryPoint : IStartable
         IMusic music,
         Player player,
         PlayerSpawnPoint spawnPoint,
-        AudioClip clip)
+        AudioClip clip,
+        IEnemySpawner enemySpawner)
     {
         _objectResolver = objectResolver ?? throw new ArgumentNullException(nameof(objectResolver));
         _music = music ?? throw new ArgumentNullException(nameof(music));
         _player = player != null ? player : throw new ArgumentNullException(nameof(player));
         _clip = clip != null ? clip : throw new ArgumentNullException(nameof(clip));
+        _enemySpawner = enemySpawner ?? throw new ArgumentNullException(nameof(enemySpawner));
 
         if (spawnPoint == null)
             throw new ArgumentNullException(nameof(spawnPoint));
@@ -38,5 +42,7 @@ public class GameEntryPoint : IStartable
             _playerSpawnPoint.rotation);
 
         _music.Play(_clip);
+
+        _enemySpawner.TrySpawn(10, out List<IEnemy> enemies);
     }
 }
